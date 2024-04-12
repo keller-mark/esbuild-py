@@ -1,0 +1,5 @@
+*.h
+*.so
+build/
+checksig.egg-info/
+dist/
