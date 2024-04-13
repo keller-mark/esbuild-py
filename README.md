@@ -1,28 +1,34 @@
 # esbuild-py
 
-```sh
-conda create -n esbuild-py python=3.11
-conda activate esbuild-py
-```
+:warning: Work in progress
+
+## Setup
+
+Create conda environment
 
 ```sh
+conda create -n esbuild-py python=3.11
+```
+
+## Build
+
+```sh
+conda activate esbuild-py
 cd pyext
 go get github.com/keller-mark/esbuild-py/pyext
-go build -buildmode=c-shared -o _checksig.so
+# go build -buildmode=c-shared -o _esbuild.so
+```
+
+## Develop
+
+```sh
+pip install -e ./esbuild_py
 python
 ```
 
-
-```py
-import ctypes
-so = ctypes.cdll.LoadLibrary('./_checksig.so')
-verify = so.verify
-verify.argtypes = [ctypes.c_char_p]
-verify.restype = ctypes.c_void_p
-free = so.free
-free.argtypes = [ctypes.c_void_p]
-
-verify_arg = """
+```python
+from esbuild_py.esbuild import transform
+jsx = """
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 
@@ -31,11 +37,16 @@ ReactDOM.render(
     document.getElementById('root')
 );
 """
+print(transform(jsx))
+```
 
-ptr = verify(verify_arg.encode('utf-8'))
-out = ctypes.string_at(ptr)
-free(ptr)
-print(out.decode('utf-8'))
+## Build python package
+
+```sh
+cd pyext
+python setup.py bdist_wheel
+python setup.py sdist
+ls dist
 ```
 
 ## Resources

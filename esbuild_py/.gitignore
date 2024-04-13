@@ -1,5 +1,5 @@
 *.h
 *.so
 build/
-checksig.egg-info/
+esbuild_py.egg-info/
 dist/
