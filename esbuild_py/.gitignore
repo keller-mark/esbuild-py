@@ -1,5 +1,0 @@
-*.h
-*.so
-build/
-esbuild_py.egg-info/
-dist/
