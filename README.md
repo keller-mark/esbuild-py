@@ -46,9 +46,8 @@ print(transform(jsx))
 
 ## Resources
 
+
 - Install go v1.20.12 from https://go.dev/dl/
-
-
 - https://github.com/ardanlabs/python-go/tree/master/pyext
 - https://pkg.go.dev/github.com/evanw/esbuild@v0.20.2/pkg/api#hdr-Transform_API
 - https://github.com/evanw/esbuild/blob/main/.github/workflows/ci.yml
