@@ -14,8 +14,8 @@ conda create -n esbuild-py python=3.11
 
 ```sh
 conda activate esbuild-py
-cd pyext
-go get github.com/keller-mark/esbuild-py/pyext
+cd esbuild_py
+go get github.com/keller-mark/esbuild-py
 # go build -buildmode=c-shared -o _esbuild.so
 ```
 
@@ -43,7 +43,7 @@ print(transform(jsx))
 ## Build python package
 
 ```sh
-cd pyext
+cd esbuild_py
 python setup.py bdist_wheel
 python setup.py sdist
 ls dist

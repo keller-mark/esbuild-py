@@ -20,7 +20,7 @@ setup(
     version='0.1.0',
     py_modules=['esbuild'],
     ext_modules=[
-        Extension('_esbuild', ['esbuild.go', 'export.go'])
+        Extension('_esbuild', ['esbuild_bindings.go'])
     ],
     cmdclass={'build_ext': build_go_ext},
     zip_safe=False,

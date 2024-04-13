@@ -17,3 +17,7 @@
 .DS_Store
 
 __pycache__/
+*.h
+build/
+*.egg-info/
+dist/
