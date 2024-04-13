@@ -21,13 +21,17 @@ go get github.com/keller-mark/esbuild-py
 
 ## Develop
 
+Build python package and install in editable mode
+
 ```sh
-pip install -e ./esbuild_py
+python setup.py bdist_wheel
+python setup.py sdist
+pip install -e .
 python
 ```
 
 ```python
-from esbuild_py.esbuild import transform
+from esbuild_py import transform
 jsx = """
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
@@ -38,15 +42,6 @@ ReactDOM.render(
 );
 """
 print(transform(jsx))
-```
-
-## Build python package
-
-```sh
-cd esbuild_py
-python setup.py bdist_wheel
-python setup.py sdist
-ls dist
 ```
 
 ## Resources
