@@ -9,6 +9,11 @@ set -x
 source /etc/os-release
 
 case "$ID" in
+    alpine)
+        apk update
+        apk add wget
+        BUILD_ARCH=$(uname -m)
+        ;;
     debian)
         apt-get update
         apt-get -y upgrade
