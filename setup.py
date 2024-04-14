@@ -16,16 +16,16 @@ class build_go_ext(build_ext):
         if out != 0:
             raise CompileError('Go build failed')
 
-ext = Extension(
-    name                = '_esbuild',          # 'mypackage.mymodule'
-    sources             = ['esbuild_bindings.go'],            # list of source files (to compile)
-)
-
 setup_args = dict(
-    packages        = find_packages(where="src"),       # list 
-    package_dir     = {"": "src"},                      # mapping
-    ext_modules     = [ext],     
-    cmdclass={'build_ext': build_go_ext},                       # list
+    packages = find_packages(where="src"),
+    package_dir = {"": "src"},
+    ext_modules = [
+        Extension(
+            name = '_esbuild',
+            sources = ['esbuild_bindings.go'],
+        )
+    ],
+    cmdclass = {'build_ext': build_go_ext},
 )
 
 setup(**setup_args)

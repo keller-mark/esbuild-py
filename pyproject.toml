@@ -12,22 +12,40 @@ description = ""
 readme = "README.md"
 license = {file = "LICENSE"}
 requires-python = ">=3.7"
-keywords = ["ipython", "jupyter", "widgets"]
+keywords = ["widgets", "javascript", "react"]
 classifiers = [
   'Development Status :: 4 - Beta',
   'Framework :: IPython',
   'Intended Audience :: Developers',
-  'Intended Audience :: Science/Research',
-  'Topic :: Multimedia :: Graphics',
   'Programming Language :: Python :: 3.7',
   'Programming Language :: Python :: 3.8',
   'Programming Language :: Python :: 3.9',
   'Programming Language :: Python :: 3.10',
+  'Programming Language :: Python :: 3.11',
+  'Programming Language :: Python :: 3.12',
 ]
 
-# https://stackoverflow.com/questions/74409966/how-to-replace-setup-py-with-a-pyproject-toml-for-a-native-c-build-dependency
+[project.optional-dependencies]
+dev = [
+  'build==0.1.0',
+  'pytest>=6.2.4',
+  'coverage>=6.3.2',
+  'flake8==3.8.4',
+]
+
+[project.urls]
+repository = "https://github.com/keller-mark/esbuild-py"
+
+# Reference: https://stackoverflow.com/a/74421415
 [tool.setuptools]
 package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+# Reference: https://stackoverflow.com/a/50156706
+[tool.pytest.ini_options]
+pythonpath = [
+  "src"
+]
+

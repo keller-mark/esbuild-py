@@ -14,7 +14,6 @@ conda create -n esbuild-py python=3.11
 
 ```sh
 conda activate esbuild-py
-cd esbuild_py
 go get github.com/keller-mark/esbuild-py
 # go build -buildmode=c-shared -o _esbuild.so
 ```
