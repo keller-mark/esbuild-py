@@ -33,7 +33,7 @@ jobs:
         uses: pypa/cibuildwheel@v2.17.0
         env:
           CIBW_BEFORE_ALL_LINUX: ./scripts/cibw_linux_before_all.sh
-          CIBW_ENVIRONMENT_LINUX: PATH=$PATH:/usr/local/go/bin
+          CIBW_ENVIRONMENT_LINUX: PATH=$PATH:/usr/local/go/bin:/go/bin
 
       - uses: actions/upload-artifact@v4
         with:
