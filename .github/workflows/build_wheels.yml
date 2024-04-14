@@ -33,9 +33,10 @@ jobs:
         uses: pypa/cibuildwheel@v2.17.0
         env:
           CIBW_BEFORE_ALL_LINUX: >
-            wget https://go.dev/dl/go1.20.12.linux-amd64.tar.gz
-            tar -C /usr/local -xzf go1.20.12.linux-amd64.tar.gz
-            export PATH=$PATH:/usr/local/go/bin
+            yum install wget &&
+            wget https://go.dev/dl/go1.20.12.linux-amd64.tar.gz &&
+            tar -C /usr/local -xzf go1.20.12.linux-amd64.tar.gz &&
+            export PATH=$PATH:/usr/local/go/bin &&
             go get github.com/keller-mark/esbuild-py
 
 
