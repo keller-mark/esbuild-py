@@ -13,15 +13,12 @@ case "$ID" in
         apt-get update
         apt-get -y upgrade
         apt-get -y install wget
-
-        wget https://go.dev/dl/go1.20.12.linux-386.tar.gz
-        tar -C /usr/local -xzf go1.20.12.linux-386.tar.gz
+        BUILD_ARCH=$(dpkg --print-architecture)
         ;;
 
     centos)
         yum install wget -y
-        wget https://go.dev/dl/go1.20.12.linux-amd64.tar.gz
-        tar -C /usr/local -xzf go1.20.12.linux-amd64.tar.gz
+        BUILD_ARCH=$(uname -m)
         ;;
 
     *)
@@ -29,6 +26,16 @@ case "$ID" in
         exit 1
         ;;
 esac
+
+echo $BUILD_ARCH
+
+if [ "$BUILD_ARCH" = "x86_64" ]; then
+    wget https://go.dev/dl/go1.20.12.linux-amd64.tar.gz
+    tar -C /usr/local -xzf go1.20.12.linux-amd64.tar.gz
+else
+    wget https://go.dev/dl/go1.20.12.linux-386.tar.gz
+    tar -C /usr/local -xzf go1.20.12.linux-386.tar.gz
+fi
 
 # TODO: switch go installers depending on architecture
 export PATH=$PATH:/usr/local/go/bin
