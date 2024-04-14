@@ -1,33 +1,12 @@
 # esbuild-py
 
-:warning: Work in progress
+## Installation
 
-## Setup
-
-Create conda environment
-
-```sh
-conda create -n esbuild-py python=3.11
+```py
+pip install esbuild_py
 ```
 
-## Build
-
-```sh
-conda activate esbuild-py
-go get github.com/keller-mark/esbuild-py
-# go build -buildmode=c-shared -o _esbuild.so
-```
-
-## Develop
-
-Build python package and install in editable mode
-
-```sh
-python setup.py bdist_wheel
-python setup.py sdist
-pip install -e .
-python
-```
+## Usage
 
 ```python
 from esbuild_py import transform
@@ -41,6 +20,34 @@ ReactDOM.render(
 );
 """
 print(transform(jsx))
+```
+
+## Development
+
+### Setup
+
+Create conda environment
+
+```sh
+conda create -n esbuild-py python=3.11
+```
+
+### Build
+
+```sh
+conda activate esbuild-py
+go get github.com/keller-mark/esbuild-py
+# go build -buildmode=c-shared -o _esbuild.so
+```
+
+### Develop
+
+Build python package and install in editable mode
+
+```sh
+python setup.py bdist_wheel
+python setup.py sdist
+pip install -e .
 ```
 
 ## Resources
