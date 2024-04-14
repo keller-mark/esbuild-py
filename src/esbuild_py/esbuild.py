@@ -17,8 +17,7 @@ def get_lib_path():
     dirs_to_try = [
         # For running in editable mode
         str(Path(__file__).absolute().parent.parent),
-        site.getsitepackages()[0]
-    ]
+    ] + site.getsitepackages()
     for d in dirs_to_try:
         so_path = os.path.join(d, so_filename)
         if os.path.exists(so_path):
