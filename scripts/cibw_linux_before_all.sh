@@ -13,10 +13,15 @@ case "$ID" in
         apt-get update
         apt-get -y upgrade
         apt-get -y install wget
+
+        wget https://go.dev/dl/go1.20.12.linux-386.tar.gz
+        tar -C /usr/local -xzf go1.20.12.linux-386.tar.gz
         ;;
 
     centos)
         yum install wget -y
+        wget https://go.dev/dl/go1.20.12.linux-amd64.tar.gz
+        tar -C /usr/local -xzf go1.20.12.linux-amd64.tar.gz
         ;;
 
     *)
@@ -26,7 +31,5 @@ case "$ID" in
 esac
 
 # TODO: switch go installers depending on architecture
-wget https://go.dev/dl/go1.20.12.linux-amd64.tar.gz
-tar -C /usr/local -xzf go1.20.12.linux-amd64.tar.gz
 export PATH=$PATH:/usr/local/go/bin
 go get github.com/keller-mark/esbuild-py
