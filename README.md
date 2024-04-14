@@ -1,5 +1,7 @@
 # esbuild-py
 
+[![PyPI](https://img.shields.io/pypi/v/esbuild_py)](https://pypi.org/project/esbuild_py)
+
 ## Installation
 
 ```py
