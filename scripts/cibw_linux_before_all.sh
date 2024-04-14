@@ -6,6 +6,8 @@
 set -euo pipefail
 set -x
 
+source /etc/os-release
+
 case "$ID" in
     debian)
         apt-get update
@@ -23,6 +25,7 @@ case "$ID" in
         ;;
 esac
 
+# TODO: switch go installers depending on architecture
 wget https://go.dev/dl/go1.20.12.linux-amd64.tar.gz
 tar -C /usr/local -xzf go1.20.12.linux-amd64.tar.gz
 export PATH=$PATH:/usr/local/go/bin
