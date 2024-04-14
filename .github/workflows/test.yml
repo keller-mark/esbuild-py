@@ -19,9 +19,12 @@ jobs:
           python-version: ${{ matrix.version }}
       - name: Install go dependencies
         run: go get github.com/keller-mark/esbuild-py
-      - name: Install (non-editable)
+      # (just so that the dev dependencies are available for the build step)
+      - name: Install 1
         run: pip install .[dev]
       - name: Build package
         run: python -m build
+      - name: Install 2 (non-editable)
+        run: pip install .
       - name: Run unit tests
         run: pytest
