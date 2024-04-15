@@ -2,8 +2,7 @@
 
 [![PyPI](https://img.shields.io/pypi/v/esbuild_py)](https://pypi.org/project/esbuild_py)
 
-Python bindings for the golang [esbuild](https://github.com/evanw/esbuild) transform API.
-
+Python bindings for the golang [esbuild](https://github.com/evanw/esbuild) [Transform API](https://pkg.go.dev/github.com/evanw/esbuild@v0.20.2/pkg/api#hdr-Transform_API).
 ## Installation
 
 ```py
