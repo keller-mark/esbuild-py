@@ -71,7 +71,7 @@ pip install -e .
 ### Publish
 
 Increment the version in `pyproject.toml`.
-The cibuildwheel GH action will build wheels for a matrix of Python versions, OS, and architectures.
+The [cibuildwheel](https://github.com/pypa/cibuildwheel) GH action will build wheels for a matrix of Python versions, OS, and architectures.
 Then, GH actions will publish to PyPI.
 
 ## Resources
