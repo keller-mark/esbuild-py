@@ -8,7 +8,7 @@ version = "0.1.3"
 authors = [
   { name="Mark Keller", email="mark_keller@hms.harvard.edu" },
 ]
-description = ""
+description = "Python bindings to the esbuild Transform API"
 readme = "README.md"
 license = {file = "LICENSE"}
 requires-python = ">=3.7"
