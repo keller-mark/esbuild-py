@@ -1,6 +1,5 @@
 from distutils.errors import CompileError
 from subprocess import call
-import os
 
 from setuptools import Extension, setup, find_packages
 from setuptools.command.build_ext import build_ext
@@ -16,7 +15,6 @@ class build_go_ext(build_ext):
         out = call(cmd)
         if out != 0:
             raise CompileError('Go build failed')
-
 
 setup_args = dict(
     packages = find_packages(where="src"),
