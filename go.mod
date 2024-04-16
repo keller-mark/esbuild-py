@@ -1,6 +1,6 @@
 module github.com/keller-mark/esbuild-py
 
-go 1.20
+go 1.22
 
 require github.com/evanw/esbuild v0.20.2
 
