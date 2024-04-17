@@ -1,7 +1,7 @@
 # esbuild-py
 
 [![PyPI](https://img.shields.io/pypi/v/esbuild_py)](https://pypi.org/project/esbuild_py)
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keller-mark/esbuild-py/blob/main/scripts/esbuild_py_demo.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/gist/keller-mark/0f3d810fcc2a774ba5ce9bee6fa16007)
 
 Python bindings to the [esbuild](https://github.com/evanw/esbuild) [Transform API](https://pkg.go.dev/github.com/evanw/esbuild@v0.20.2/pkg/api#hdr-Transform_API).
 ## Installation
