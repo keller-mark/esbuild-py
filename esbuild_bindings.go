@@ -1,10 +1,11 @@
 package main
 
-import (
-	"C"
-	"unsafe"
-	"github.com/evanw/esbuild/pkg/api"
-)
+/*
+#include <stdlib.h>
+*/
+import "C"
+import "unsafe"
+import "github.com/evanw/esbuild/pkg/api"
 
 //export transform
 func transform(jsx *C.char) *C.char {
