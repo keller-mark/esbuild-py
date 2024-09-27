@@ -17,8 +17,8 @@ func transform(jsx *C.char) *C.char {
 	return C.CString(resultStr)
 }
 
-//export free
-func free(ptr *C.char) {
+//export free_mem
+func free_mem(ptr *C.char) {
 	C.free(unsafe.Pointer(ptr))
 }
 

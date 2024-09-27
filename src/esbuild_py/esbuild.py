@@ -33,17 +33,17 @@ transform_binding = so.transform
 transform_binding.argtypes = [ctypes.c_char_p]
 transform_binding.restype = ctypes.c_void_p
 try:
-    free = so.free
-    free.argtypes = [ctypes.c_void_p]
+    free_mem_binding = so.free_mem
+    free_mem_binding.argtypes = [ctypes.c_void_p]
 except AttributeError:
-    free = None
+    free_mem_binding = None
 
 # Wrap the bound go function.
 def transform(jsx):
     res = transform_binding(jsx.encode('utf-8'))
     if res is not None:
         msg = ctypes.string_at(res).decode('utf-8')
-        if free is not None:
-            free(res)
+        if free_mem_binding is not None:
+            free_mem_binding(res)
         return msg
 
