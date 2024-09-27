@@ -5,6 +5,7 @@
 *.so
 *.dylib
 *.wasm
+*.wat
 
 # Test binary, built with `go test -c`
 *.test
@@ -23,3 +24,6 @@ build/
 *.egg-info/
 dist/
 .pytest_cache/
+.pyodide-xbuildenv/
+.venv-pyodide/
+emsdk/

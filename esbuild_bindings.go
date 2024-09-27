@@ -2,7 +2,7 @@ package main
 
 import (
 	"C"
-
+	"unsafe"
 	"github.com/evanw/esbuild/pkg/api"
 )
 
@@ -14,6 +14,11 @@ func transform(jsx *C.char) *C.char {
     })
 	resultStr := string(result.Code[:])
 	return C.CString(resultStr)
+}
+
+//export free
+func free(ptr *C.char) {
+	C.free(unsafe.Pointer(ptr))
 }
 
 func main() {}
