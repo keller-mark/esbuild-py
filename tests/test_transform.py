@@ -1,6 +1,5 @@
 import unittest
-
-from esbuild_py import transform
+from esbuild_py import transform, build
 
 
 class TestTransform(unittest.TestCase):
