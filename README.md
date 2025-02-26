@@ -5,6 +5,8 @@
 [![Open In Colab - dynamic-importmap](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/gist/keller-mark/8d8f13378e73cea8de122385bf34d695)
 
 Python bindings to the [esbuild](https://github.com/evanw/esbuild) [Transform API](https://pkg.go.dev/github.com/evanw/esbuild@v0.20.2/pkg/api#hdr-Transform_API).
+
+For the `oxc` equivalent, see [oxc-py](https://github.com/keller-mark/oxc-py).
 ## Installation
 
 ```py
