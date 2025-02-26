@@ -1,10 +1,11 @@
 package main
 
-import (
-	"C"
-
-	"github.com/evanw/esbuild/pkg/api"
-)
+/*
+#include <stdlib.h>
+*/
+import "C"
+import "unsafe"
+import "github.com/evanw/esbuild/pkg/api"
 
 //export transform
 func transform(jsx *C.char) *C.char {
@@ -14,6 +15,11 @@ func transform(jsx *C.char) *C.char {
     })
 	resultStr := string(result.Code[:])
 	return C.CString(resultStr)
+}
+
+//export free_mem
+func free_mem(ptr *C.char) {
+	C.free(unsafe.Pointer(ptr))
 }
 
 func main() {}

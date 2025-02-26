@@ -1,6 +1,7 @@
 import ctypes
 from distutils.sysconfig import get_config_var
 from pathlib import Path
+from sys import platform
 import os
 import site
 
@@ -31,14 +32,18 @@ so = ctypes.cdll.LoadLibrary(so_filepath)
 transform_binding = so.transform
 transform_binding.argtypes = [ctypes.c_char_p]
 transform_binding.restype = ctypes.c_void_p
-free = so.free
-free.argtypes = [ctypes.c_void_p]
+try:
+    free_mem_binding = so.free_mem
+    free_mem_binding.argtypes = [ctypes.c_void_p]
+except AttributeError:
+    free_mem_binding = None
 
 # Wrap the bound go function.
 def transform(jsx):
     res = transform_binding(jsx.encode('utf-8'))
     if res is not None:
         msg = ctypes.string_at(res).decode('utf-8')
-        free(res)
+        if free_mem_binding is not None:
+            free_mem_binding(res)
         return msg
 

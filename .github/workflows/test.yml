@@ -4,10 +4,12 @@ on: [push, pull_request]
 
 jobs:
   test_python:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        version: ['3.7', '3.11']
+        version: ['3.8', '3.12']
+        # macos-13 is an intel runner, macos-14 is apple silicon
+        os: [ubuntu-latest, windows-latest, macos-13, macos-14]
     steps:
       - uses: actions/checkout@v3
       - name: Set up Go 1.x
