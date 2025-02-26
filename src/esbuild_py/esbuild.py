@@ -28,11 +28,30 @@ def get_lib_path():
 # - https://github.com/ardanlabs/python-go/blob/db361ab/pyext/checksig.py#L12
 so_filepath = get_lib_path()
 so = ctypes.cdll.LoadLibrary(so_filepath)
+
 transform_binding = so.transform
 transform_binding.argtypes = [ctypes.c_char_p]
 transform_binding.restype = ctypes.c_void_p
+
+build_binding = so.build
+build_binding.argtypes = [ctypes.c_char_p, ctypes.c_char_p]
+
+class EsbuildError(Exception):
+    pass
+
+def error_handler(output):
+    if not output == 0:
+        raise EsbuildError("Not valid output")
+
+build_binding.restype = error_handler
+
 free = so.free
 free.argtypes = [ctypes.c_void_p]
+
+def build(input, output):
+    input_str = (input.encode('utf-8'))
+    output_str = (output.encode('utf-8'))
+    build_binding(input_str, output_str)
 
 # Wrap the bound go function.
 def transform(jsx):

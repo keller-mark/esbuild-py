@@ -6,8 +6,8 @@ import (
 
 func transform(jsxStr string) string {
 	result := api.Transform(jsxStr, api.TransformOptions{
-        Loader: api.LoaderJSX,
-    })
+		Loader: api.LoaderJSX,
+	})
 	resultStr := string(result.Code[:])
 	return resultStr
 }
