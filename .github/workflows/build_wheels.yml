@@ -30,7 +30,7 @@ jobs:
         run: go get github.com/keller-mark/esbuild-py
 
       - name: Build wheels
-        uses: pypa/cibuildwheel@v2.17.0
+        uses: pypa/cibuildwheel@v3.2.1
         env:
           CIBW_BEFORE_ALL_LINUX: ./scripts/cibw_linux_before_all.sh
           CIBW_ENVIRONMENT_LINUX: PATH=$PATH:/usr/local/go/bin:/go/bin
