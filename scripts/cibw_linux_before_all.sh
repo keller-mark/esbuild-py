@@ -27,6 +27,11 @@ case "$ID" in
         yum install wget -y
         BUILD_ARCH=$(uname -m)
         ;;
+    
+    almalinux)
+        dnf install wget -y
+        BUILD_ARCH=$(uname -m)
+        ;;
 
     *)
         echo "$0: unexpected Linux distribution: '$ID'" >&2
