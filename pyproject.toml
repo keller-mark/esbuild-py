@@ -11,7 +11,7 @@ authors = [
 description = "Python bindings to the esbuild Transform API"
 readme = "README.md"
 license = {file = "LICENSE"}
-requires-python = ">=3.7"
+requires-python = ">=3.8"
 keywords = ["widgets", "javascript", "react"]
 classifiers = [
   'Development Status :: 4 - Beta',
